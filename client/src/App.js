@@ -35,14 +35,17 @@ function App() {
         repositories.filter((a) => a.stargazers_count > obj.minstar)
       );
     }
+    if (obj.last_update) {
+      setrepositories(
+        repositories.filter((a) => a.updated_at.includes(obj.last_update))
+      );
+    }
     if (obj.maxstar) {
       setrepositories(
         repositories.filter((a) => a.stargazers_count < obj.maxstar)
       );
     }
-    if (obj.last_update) {
-      setrepositories(repositories.sort((a, b) => b.updated_at - a.updated_at));
-    }
+
     if (obj.language) {
       setrepositories(
         repositories.filter((r) => {

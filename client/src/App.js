@@ -30,7 +30,7 @@ function App() {
     }
     if (obj.minstar) {
       setrepositories(
-        repositories.filter((a) => a.stargazers_count > obj.minstar)
+        repositories.filter((a) => a.stargazers_count >= obj.minstar)
       );
     }
     if (obj.last_update) {
@@ -43,7 +43,7 @@ function App() {
     }
     if (obj.maxstar) {
       setrepositories(
-        repositories.filter((a) => a.stargazers_count < obj.maxstar)
+        repositories.filter((a) => a.stargazers_count <= obj.maxstar)
       );
     }
 

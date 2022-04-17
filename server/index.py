@@ -4,7 +4,7 @@ import requests
 
 def get_function(q):
     response = requests.get(
-        "https://api.github.com/search/repositories?q="+q + "&per_page=50")
+        "https://api.github.com/search/repositories?q="+q + "&order=desc&per_page=50")
     repos = response.json()
     return repos
 

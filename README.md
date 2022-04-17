@@ -7,3 +7,6 @@ cd server- >
  <br/>
  cd client ->
  $npm start
+ <br/>
+ # API
+ Get : /repos?q={repo_name}

@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
-import Repository from "./Repository";
-import Checkbox from "@mui/material/Checkbox";
+import Repository from "./Repository"; 
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -53,26 +52,28 @@ export default function Home({
           label="Max number of stars"
           variant="standard"
           type="number"
-          onChange={(e) => setCriteria({ ...criteria, maxstar: e.target.value })}
+          onChange={(e) =>
+            setCriteria({ ...criteria, maxstar: e.target.value })
+          }
         />
-        <label>filter by last update</label>
-        <Checkbox
-          {...label}
-          onClick={(e) => setCriteria({  ...criteria, last_update: e.target.value })}
-        />
+
         <TextField
           id="standard-basic"
           label="Last Update"
           variant="standard"
           type="date"
           focused={true}
-          onChange={(e) => setCriteria({ ...criteria, last_update: e.target.value })}
+          onChange={(e) =>
+            setCriteria({ ...criteria, last_update: e.target.value })
+          }
         />
         <TextField
           id="standard-basic"
           label="Programing language"
           variant="standard"
-          onChange={(e) => setCriteria({ ...criteria, language: e.target.value })}
+          onChange={(e) =>
+            setCriteria({ ...criteria, language: e.target.value })
+          }
         />
         <button onClick={() => CriteriaFunction(criteria)}>fillter</button>
       </div>

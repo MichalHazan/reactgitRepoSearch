@@ -16,9 +16,7 @@ function App() {
     }
     setloading(true);
     console.log(value);
-    const res = await fetch(
-      "https://api.github.com/search/repositories?q=" + value + "&per_page=50"
-    );
+    const res = await fetch('/repos?q=' + value);
     const data = await res.json();
     console.log(data.items);
     setrepositories(data.items);
@@ -37,7 +35,10 @@ function App() {
     }
     if (obj.last_update) {
       setrepositories(
-        repositories.filter((a) => a.updated_at.includes(obj.last_update))
+        repositories.filter((a) => {
+          console.log(a.updated_at);
+          return a.updated_at.includes(obj.last_update);
+        })
       );
     }
     if (obj.maxstar) {

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 
 export default function Repository({ repository }) {
   return (
-    <Card sx={{ width: 250, height: 200, overflow: "auto", margin: 2 }}>
+    <Card sx={{ width: 450, height: 200, overflow: "auto", margin: 2 }}>
       <Avatar alt={repository.name} src={repository.owner.avatar_url} />
       <Typography variant="body2" color="text.secondary">
         {repository.owner.login}
@@ -28,9 +28,22 @@ export default function Repository({ repository }) {
           language: {repository.language}
         </Typography>
         <br />
+       
         <Typography variant="body2" color="text.secondary">
           issues: {repository.open_issues_count}
         </Typography>
+        
+        <br />
+        {repository.topics.length > 1 ?
+          <Typography variant="body2" color="text.secondary">
+            Topics: {" "}
+            {repository.topics?.map((t) => (
+              <span key={t}>{t} , </span>
+            ))}
+          </Typography>
+         :
+          ""
+        }
       </CardContent>
     </Card>
   );
